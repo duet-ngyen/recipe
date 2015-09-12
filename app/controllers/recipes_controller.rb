@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :load_recipe, except: [:index, :new, :create]
   before_action :recipe_params, only: [:create, :update]
+  before_action :load_chefs, only: [:new, :create, :edit, :update]
 
   def index
     @recipes = Recipe.all
@@ -11,14 +12,12 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @chefs = Chef.all
   end
 
   def create
     @recipe = Recipe.new recipe_params
-    # byebug
-    # @recipe.chef = Chef.find(2)
     if @recipe.save
+      flash[:success] = "created successful"
       redirect_to recipes_path
     else
       render :new
@@ -26,11 +25,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @chefs = Chef.all
   end
 
   def update
     if @recipe.update_attributes recipe_params
+      flash[:danger] = "updated successful"
       redirect_to recipe_path @recipe
     else
       render :edit
@@ -44,5 +43,9 @@ class RecipesController < ApplicationController
 
   def load_recipe
     @recipe = Recipe.find params[:id]
+  end
+
+  def load_chefs
+    @chefs = Chef.all
   end
 end
