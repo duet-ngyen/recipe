@@ -11,9 +11,25 @@
 }
 
 .avatar{
-  height: 80px;
-  width: 80px;
-  background-color: red;
   border-radius: 5px;
-  border: solid 1px green;
+}
+
+.clear-both{
+  clear: both;
+}
+
+.recipe-info{
+  position: relative;
+  min-height: 120px;
+}
+
+.time-ago{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.select_tag{
+  width: 20%;
+  margin-bottom: 10px;
 }
