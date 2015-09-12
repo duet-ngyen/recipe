@@ -8,3 +8,8 @@ Very simple web app
   How to use gravatar
   How to submit data from a combobox
 
+03f4133 update flash errors messages
+  Flash
+  Error message
+  Title html
+  title sub-page
