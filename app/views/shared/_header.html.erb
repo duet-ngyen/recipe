@@ -1,0 +1,19 @@
+<nav role="navigation" class="navbar navbar-default" >
+  <div class="navbar-center">
+    <div class="navbar-header" >
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("Recipe", root_path, {class: "navbar-brand brand"}) %>
+    </div>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav page">
+        <li><%= link_to "Home", "" %></li>
+        <li><%= link_to "Tip", "" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>

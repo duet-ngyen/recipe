@@ -1,0 +1,19 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.well{
+  background-color: #F7F7F7;
+  border: solid 1px #BBBBBB;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.avatar{
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  border-radius: 5px;
+  border: solid 1px green;
+}
