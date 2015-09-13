@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   belongs_to :chef
+  has_many :likes
 
   mount_uploader :img, RecipeUploader
 

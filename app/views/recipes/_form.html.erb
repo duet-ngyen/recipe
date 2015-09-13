@@ -21,15 +21,13 @@
     </div>
     <div class="">
       <h3><%= f.label :Chef %></h3>
-      <% if @recipe.new_record? %>
-        <%= f.select( :chef_id, options_for_select(@chefs.map{|c| [c.name, c.id ]}),
-          { include_blank: "Select a chef" }, {class:"form-control select_tag"}) %>
-      <% else %>
-        <%= f.select( :chef_id, options_for_select(@chefs.map{|c| [c.name, c.id ]}),
-          {}, {class:"form-control select_tag"}) %>
-      <% end %>
+      <!-- http://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/collection_select -->
+      <!-- nachocab - June 29, 200 -->
+      <!--If you want some object to be selected by default, be sure to use its id, not the-->
+      <%= f.select :chef_id,
+        options_for_select(@chefs.map{|c| [c.name, c.id ]}, {:selected => @chefs.map{|c| c==@recipe.chef ? c.id : ""}}),
+        { include_blank: "Select a chef" }, {class:"form-control select_tag"} %>
     </div>
-
     <div>
       <%= f.label :img, "Picture Demo" %>
       <%= f.file_field :img %>
