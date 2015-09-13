@@ -13,3 +13,7 @@ Very simple web app
   Error message
   Title html
   title sub-page
+
+243d8dd using carriewave cloudinay for recipe img demo
+  using carriewave
+  using cloudinary

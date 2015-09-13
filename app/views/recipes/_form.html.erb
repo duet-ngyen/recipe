@@ -21,8 +21,18 @@
     </div>
     <div class="">
       <h3><%= f.label :Chef %></h3>
-      <%= f.select( :chef_id, options_for_select(@chefs.map{|c| [c.name, c.id ]}),
-        {include_blank: "Select a chef"}, {class:"form-control select_tag"}) %>
+      <% if @recipe.new_record? %>
+        <%= f.select( :chef_id, options_for_select(@chefs.map{|c| [c.name, c.id ]}),
+          { include_blank: "Select a chef" }, {class:"form-control select_tag"}) %>
+      <% else %>
+        <%= f.select( :chef_id, options_for_select(@chefs.map{|c| [c.name, c.id ]}),
+          {}, {class:"form-control select_tag"}) %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.label :img, "Picture Demo" %>
+      <%= f.file_field :img %>
     </div>
     <div>
       <%= submit_tag (@recipe.new_record?)?"Create":"Update", class: "btn-lg btn-success btn-block" %>

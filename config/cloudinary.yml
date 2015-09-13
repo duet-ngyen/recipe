@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dtls0k5em
+  api_key: '271617848855658'
+  api_secret: znrH6f2NVB08Ds53SGqOOJoRZTA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dtls0k5em
+  api_key: '271617848855658'
+  api_secret: znrH6f2NVB08Ds53SGqOOJoRZTA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dtls0k5em
+  api_key: '271617848855658'
+  api_secret: znrH6f2NVB08Ds53SGqOOJoRZTA
+  enhance_image_tag: true
+  static_image_support: false

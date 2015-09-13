@@ -6,10 +6,9 @@
 </div>
 <hr>
 <div class="well col-sm-10 col-sm-offset-1">
-  <div class="img-recipe">
+  <%= image_tag (@recipe.img_url :avatar_header) , class:"col-sm-3" %>
 
-  </div>
-  <div class="recipe-details col-sm-9 col-sm-offset-3">
+  <div class="recipe-details col-sm-9">
     <h3><%= @recipe.title %></h3>
     <p><%= simple_format @recipe.description %></p>
     <p><%= time_ago_in_words(@recipe.created_at) %></p>
