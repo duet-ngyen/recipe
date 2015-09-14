@@ -3,11 +3,15 @@ class RecipesController < ApplicationController
   before_action :recipe_params, only: [:create, :update]
   before_action :load_chefs, only: [:new, :create, :edit, :update]
 
+
   def index
-    @recipes = Recipe.all
+    # @sort = Recipe.sort_by(:id)
+    @recipes = Recipe.paginate(page: params[:page], per_page: 2)
   end
 
   def show
+    @count_like = @recipe.count_like
+    @count_dislike = @recipe.count_dislike
   end
 
   def new
@@ -36,6 +40,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def like
+    like = Like.create(like: params[:like], chef: @recipe.chef, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "Like created"
+      redirect_to :back
+    else
+      flash[:danger] = "Only like/dislike once"
+      redirect_to :back
+    end
+
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit :title, :description, :chef_id, :img
@@ -48,4 +64,5 @@ class RecipesController < ApplicationController
   def load_chefs
     @chefs = Chef.all
   end
+
 end

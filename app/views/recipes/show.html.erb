@@ -11,7 +11,17 @@
   <div class="recipe-details col-sm-9">
     <h3><%= @recipe.title %></h3>
     <p><%= simple_format @recipe.description %></p>
-    <p><%= time_ago_in_words(@recipe.created_at) %></p>
+    <p class="pull-bottom pull-right"><%= time_ago_in_words(@recipe.created_at) %></p>
+  </div>
+
+  <div class="pull-right">
+    <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+    <i class="glyphicon glyphicon-thumbs-up"></i> <%= @count_like %>
+    <% end %>
+    <span class="tab"></span>
+    <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i> <%= @count_dislike %>
+    <% end %>
   </div>
 </div>
 <div class="clear-both"></div>
